@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         orange: "#EC765C",
+        fondo: "#f8eadd",
       },
     },
   },

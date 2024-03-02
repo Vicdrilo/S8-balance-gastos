@@ -15,6 +15,9 @@ export function DataProvider({ children }) {
     }
   };
 
+  //Idioma elegido
+  const [chosenLang, setChosenLang] = useState("es");
+
   //Datos de cada opción
   const [balance, setBalance] = useState(data.balance);
   const [variation, setVariation] = useState(data.variation);
@@ -23,6 +26,8 @@ export function DataProvider({ children }) {
   const values = {
     chosenOption,
     handleChosenOption,
+    chosenLang,
+    setChosenLang,
     balance,
     setBalance,
     variation,
