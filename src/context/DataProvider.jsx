@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import data from "./datos.json";
+import datos from "./datos.json";
 
 export const dataProvider = React.createContext();
 
@@ -19,11 +19,12 @@ export function DataProvider({ children }) {
   const [chosenLang, setChosenLang] = useState("es");
 
   //Datos de cada opción
-  const [balance, setBalance] = useState(data.balance);
-  const [variation, setVariation] = useState(data.variation);
-  const [today, setToday] = useState(data.today);
+  const [balance, setBalance] = useState(datos.balance);
+  const [variation, setVariation] = useState(datos.variation);
+  const [today, setToday] = useState(datos.today);
 
   const values = {
+    datos,
     chosenOption,
     handleChosenOption,
     chosenLang,

@@ -6,13 +6,13 @@ import { dataProvider } from "../context/DataProvider";
 export function ShowSummary() {
   const {
     chosenOption,
-    handleChosenOption,
+    
     balance,
-    setBalance,
+    
     variation,
-    setVariation,
-    today,
-    setToday,
+    
+    
+    
   } = useContext(dataProvider);
   const sign =
     variation > 0 ? (

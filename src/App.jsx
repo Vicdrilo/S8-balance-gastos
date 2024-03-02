@@ -1,7 +1,7 @@
 import "./App.css";
 import { Lang } from "./components/Lang";
 import { ShowChart } from "./components/ShowChart";
-import { ShowSummary } from "./components/ShowSummery";
+import { ShowSummary } from "./components/ShowSummary";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
