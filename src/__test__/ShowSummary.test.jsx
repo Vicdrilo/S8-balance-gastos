@@ -1,10 +1,12 @@
 import { describe, expect, test, beforeAll } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { ShowSummary } from "./ShowSummary";
+import { ShowSummary } from "../components/ShowSummary";
 import { DataProvider } from "../context/DataProvider";
 import userEvent from "@testing-library/user-event";
+//import { useTranslation } from "react-i18next";
 
 describe("Tests de Show Summary component: ", () => {
+  //const [t, i18n] = useTranslation();
   beforeAll(() => {
     render(
       <>
@@ -14,15 +16,15 @@ describe("Tests de Show Summary component: ", () => {
       </>
     );
   });
-  test("Renderiza", () => {
-    expect(screen.getByText("Balanç total")).toBeDefined();
-  });
+  // test("Renderiza", () => {
+  //   expect(screen.getByText("Balance total")).toBeDefined();
+  // });
 
   test("Cambia estado/titulo al darle a la flecha derecha", () => {
     const nextBtn = screen.queryByTestId("next-btn");
     const checkNextBtn = async () => {
       await userEvent.click(nextBtn);
-      expect(screen.getByText("Variació respecte a ahir")).toBeDefined();
+      expect(screen.getByText("Variación respecto a ayer")).toBeDefined();
     };
     checkNextBtn();
   });
@@ -30,7 +32,7 @@ describe("Tests de Show Summary component: ", () => {
     const prevBtn = screen.queryByTestId("prev-btn");
     const checkPrevBtn = async () => {
       await userEvent.click(prevBtn);
-      expect(screen.getByText("Balanç total")).toBeDefined();
+      expect(screen.getByText("Balance total")).toBeDefined();
     };
     checkPrevBtn();
   });

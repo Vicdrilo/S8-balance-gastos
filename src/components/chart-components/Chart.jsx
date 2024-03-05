@@ -10,6 +10,7 @@ import {
 } from "chart.js";
 import { useContext } from "react";
 import { dataProvider } from "../../context/DataProvider";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(
   CategoryScale,
@@ -21,9 +22,11 @@ ChartJS.register(
 );
 
 export function Chart() {
+  const { t } = useTranslation();
   const { datos, setToday } = useContext(dataProvider);
 
-  const days = getDays(datos, setToday);
+  let arr = t("showChart.part4").split(" ");
+  const days = getDays(datos, setToday, arr);
   const amount = getDespeces(datos);
   const data = {
     labels: days, //Muestra los últimos siete días
@@ -78,7 +81,7 @@ export function Chart() {
   return (
     <>
       <h2 className="text-black text-[1.75rem] mt-4 ms-1 me-1">
-        <b>Despeses - Última setmana</b>
+        <b>{t("showChart.part3")}</b>
       </h2>
       <div
         className="w-full h-full flex justify-center items-end pe-3"
@@ -90,7 +93,7 @@ export function Chart() {
   );
 }
 
-function getDays(datos, setToday) {
+function getDays(datos, setToday, daysWeek) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const length = datos.despeces.length;
@@ -99,7 +102,7 @@ function getDays(datos, setToday) {
 
   const diasDiferencia =
     (today.getTime() - lastDespecaDay.getTime()) / (1000 * 60 * 60 * 24);
-  const diasSemana = ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"];
+  const diasSemana = daysWeek; // ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"]
   let result = [];
 
   //Si hay más días sin haberse registrado ningun gasto se rellenan los días con gasto 0€
